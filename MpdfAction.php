@@ -106,8 +106,10 @@ class MpdfAction extends Action {
 				define( '_MPDF_TTFONTDATAPATH', "$tempDir/mpdf/ttfontdata/" );
 				wfMkdirParents( _MPDF_TTFONTDATAPATH );
 			}
-
-			$mpdf = new mPDF( $mode, $format, 0, '', $marginLeft, $marginRight, $marginTop, $marginBottom, $marginHeader, $marginFooter, $orientation );
+				
+			// $mpdf = new mPDF( $mode, $format, 0, '', $marginLeft, $marginRight, $marginTop, $marginBottom, $marginHeader, $marginFooter, $orientation );
+			require_once __DIR__ . '/../../vendor/autoload.php';
+			$mpdf = new \Mpdf\Mpdf();
 
 			// Suppress warning messages, because the mPDF library
 			// itself generates warnings (due to trying to add
